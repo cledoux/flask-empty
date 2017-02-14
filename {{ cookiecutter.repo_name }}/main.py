@@ -2,7 +2,7 @@
 
 import os
 import sys
-from empty import Empty
+from baseapp import BaseApp
 
 {%- if cookiecutter.create_index_view != 'no' %}
 from flask import render_template
@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.join(PROJECT_PATH, "apps"))
 basestring = getattr(__builtins__, 'basestring', str)
 
 
-class App(Empty):
+class App(BaseApp):
     {% if cookiecutter.create_index_view != 'no' %}
     def configure_views(self):
         @self.route('/')
@@ -35,7 +35,7 @@ def config_str_to_obj(cfg):
 
 
 def app_factory(config, app_name, blueprints=None):
-    # you can use Empty directly if you wish
+    # you can use BaseApp directly if you wish
     app = App(app_name, template_folder=os.path.join(PROJECT_PATH, 'templates'))
     config = config_str_to_obj(config)
 

@@ -4,7 +4,7 @@ import logging
 from werkzeug.utils import import_string
 
 
-__all__ = ['Empty']
+__all__ = ['BaseApp']
 
 basestring = getattr(__builtins__, 'basestring', str)
 
@@ -17,7 +17,7 @@ class BlueprintException(Exception):
     pass
 
 
-class Empty(Flask):
+class BaseApp(Flask):
 
     def configure(self, config):
         """
