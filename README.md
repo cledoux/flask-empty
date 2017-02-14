@@ -1,7 +1,8 @@
 Flask Empty
 ===========
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/italomaia/flask-empty?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+This is my (Charles LeDoux) personal fork of the Flask-Empty project. It
+has been customized to fit my preferences.
 
 Flask-Empty is a simple **flask boilerplate** for fast prototyping. Just
 use cookiecutter and create a new project in no time.
@@ -11,7 +12,7 @@ use cookiecutter and create a new project in no time.
 sudo pip install cookiecutter
 
 # using cookiecutter // linux/Mac
-cookiecutter https://github.com/italomaia/flask-empty
+cookiecutter https://github.com/cledoux/flask-empty
 
 # answer the prompt and you're done!
 ```
@@ -35,20 +36,25 @@ pip install -r requirements/prod.txt  # prod environment if server
 
 You're advised to change the requirements files according to your needs.
 
+We are using requirements files instead of a setup.py because this is the
+common practice of the Flask community. Flask apps aren't generally installed,
+thus a setup.py file is not usually created.
+
 Important files to be aware of
 ==============================
 
 ### project/config.py
 
 **extensions.py** all extension instances that need initialization should be available
-here in order for _Empty_ to see and initialize them for you.
+here in order for _BaseApp_ to see and initialize them for you.
 
 **config.py** is a pre-set configuration classes for you to meddle with. They're are all self explanatory
 and commented.
 
-**main.py** the _Empty_ class inherits from the _Flask_ class. Override it if you need to setup
+**main.py** the _BaseApp_ class inherits from the _Flask_ class. Override it if 
+you need to setup
 extensions, an index view, context processors, etc. It already has sensitive defaults for most
- features. (see **empty.py** to better understand _Empty_)
+ features. (see **baseapp.py** to better understand _BaseApp_)
 
 **database.py** setup your database library there. There is some commented code for sqlalchemy support out of the box.
 
@@ -64,7 +70,8 @@ available commands by running **python manage.py**.
 
 ## Heroku
 
-Empty comes with a pre-configured _procfile_ and _heroku()_ wrapper for _app_factory_. No setup required.
+BaseApp comes with a pre-configured _procfile_ and _heroku()_ wrapper for 
+_app_factory_. No setup required.
 
 ## Observations
 
