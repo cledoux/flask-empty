@@ -28,7 +28,7 @@ class Config(object):
 
     {% endif %}
     WTF_CSRF_ENABLED = True
-    SECRET_KEY = "secret"  # import os; os.urandom(24)
+    SECRET_KEY = "dev"  # import os; os.urandom(24)
 
     # LOGGING
     LOGGER_NAME = "%s_log" % project_name
